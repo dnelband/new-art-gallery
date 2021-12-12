@@ -1,0 +1,45 @@
+.nav {
+  height: 25px;
+  width: 100%;
+  background-color: var(--black);
+  margin-top: 0;
+  font-family: 'Raleway';
+  padding: 15px 30px;
+
+  font-weight: 500;
+
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    position: relative;
+
+    .left {
+      justify-content: left;
+      position: absolute;
+      left: 0;
+      font-size: 22px;
+    }
+
+    .right {
+      display: flex;
+      position: absolute;
+      right: 50px;
+
+      li {
+        margin: 0 10px;
+        font-size: 17px;
+
+        &:hover {
+          transform: scale(1.1);
+          color: var(--grey);
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
+}

@@ -1,0 +1,38 @@
+.nav {
+  height: 25px;
+  width: 100%;
+  background-color: var(--black);
+  margin-top: 0;
+  font-family: 'Raleway';
+  padding: 15px 30px;
+  font-weight: 500;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  position: relative;
+}
+.nav ul .left {
+  justify-content: left;
+  position: absolute;
+  left: 0;
+  font-size: 22px;
+}
+.nav ul .right {
+  display: flex;
+  position: absolute;
+  right: 50px;
+}
+.nav ul .right li {
+  margin: 0 10px;
+  font-size: 17px;
+}
+.nav ul .right li:hover {
+  transform: scale(1.1);
+  color: var(--grey);
+}
+.nav a {
+  text-decoration: none;
+  color: var(--white);
+}
