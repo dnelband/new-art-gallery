@@ -3,8 +3,25 @@ import Header from '../components/Header';
 import Gallery from '../components/Gallery';
 import About from '../components/About';
 import Head from 'next/head';
+import { server } from '../config/server';
+import { importDb } from '../config/db';
+import { useState } from 'react';
 
-export default function Home() {
+export default function Home({ maingallery, about, contact }) {
+  // const [messages, setMessages] = useState(initMessages);
+
+  async function onSubmitNewMessage(newMessage) {
+    const response = await fetch(`${server}/api/messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newMessage),
+    });
+    const newMessages = await response.json();
+    setMessages(newMessages);
+  }
+
   return (
     <div className={styles.home}>
       <Head>
@@ -21,7 +38,7 @@ export default function Home() {
         referrerpolicy='no-referrer'
       />
       <Header />
-      <Gallery />
+      <Gallery maingallery={maingallery} />
 
       <div className={styles.container}>
         <div>
@@ -49,7 +66,15 @@ export default function Home() {
         </div>
       </div>
 
-      <About />
+      <About about={about} contact={contact} />
     </div>
   );
 }
+
+export const getServerSideProps = async () => {
+  const db = await importDb();
+  const maingallery = await db.all('select * from maingallery');
+  const about = await db.all('select * from about');
+  const contact = await db.all('select * from contact');
+  return { props: { maingallery, about, initMessages: contact } };
+};

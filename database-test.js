@@ -8,14 +8,14 @@ async function setup() {
   });
 
   await db.migrate({ force: 'last' });
-  //   const maingallery = await db.all('SELECT * FROM maingallery');
-  //   console.log(JSON.stringify(picture));
+  const maingallery = await db.all('SELECT * FROM maingallery');
+  console.log(JSON.stringify(maingallery));
   const subgallery = await db.all('SELECT * FROM subgallery');
-  console.log(JSON.stringify(price));
+  console.log(JSON.stringify(subgallery));
   const about = await db.all('SELECT * FROM about');
-  console.log(JSON.stringify(title));
+  console.log(JSON.stringify(about));
   const contact = await db.all('SELECT * FROM contact');
-  console.log(JSON.stringify(msg));
+  console.log(JSON.stringify(contact));
 }
 
 setup();

@@ -1,6 +1,20 @@
 import navStyles from '../styles/Nav.module.css';
 
 const Nav = () => {
+  if (typeof window !== 'undefined') {
+    console.log(window.location.href);
+    if (window.location.href === '/') {
+      console.log('main');
+    } else if (window.location.href === '/admin') {
+      console.log('This is admin');
+    } else if (
+      window.location.href === '/tavlor' ||
+      window.location.href === '/skulpturer'
+    ) {
+      console.log('galleri');
+    }
+  }
+
   return (
     <nav className={navStyles.nav}>
       <ul>

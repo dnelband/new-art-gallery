@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import { getMiddlewareRegex } from 'next/dist/shared/lib/router/utils';
 import CloseIcon from '@material-ui/icons/Close';
 
-const Gallery = () => {
+const Gallery = ({ gallery }) => {
   const [modal, setModal] = useState(false);
   const [tempimgSrc, setTempimgSrc] = useState('');
+
   let data = [
     {
       id: 1,

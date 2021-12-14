@@ -1,0 +1,108 @@
+.admin {
+  height: 100%;
+  background-color: var(--admin-middle);
+  padding: 40px;
+  font-family: 'Raleway';
+
+  h2 {
+    text-transform: uppercase;
+    color: var(--admin-white);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  img {
+    width: 300px;
+  }
+  .sectionContainer {
+    background-color: var(--admin-dark);
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+    padding: 20px 60px;
+
+    .firstRow {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .secondRow {
+      padding: 20px;
+      text-align: center;
+
+      .galleryContainer {
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        img {
+          height: 250px;
+          width: 100%;
+          object-fit: cover;
+        }
+        div {
+          float: right;
+        }
+      }
+    }
+
+    a {
+      background: #f5f5f740;
+      color: #fff;
+      border-radius: 7px;
+      padding: 8px 20px 5px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+      margin-left: 10px;
+      text-decoration: none;
+      letter-spacing: 0.1rem;
+      cursor: pointer;
+    }
+    a:hover {
+      transform: scale(1.03);
+    }
+
+    .thirdRow {
+      padding: 20px;
+      text-align: center;
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+        color: var(--admin-white);
+        text-transform: uppercase;
+        .itemContainer {
+          background: rgb(40, 51, 55);
+          background: linear-gradient(
+            20deg,
+            var(--admin-grad) 40%,
+            rgba(40, 51, 55, 1) 85%,
+            rgba(42, 71, 69, 1) 100%
+          );
+          margin: 0px 20px 20px;
+          padding: 20px 20px 40px;
+
+          img {
+            height: 300px;
+            object-fit: cover;
+          }
+          div {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+// --admin-middle: #33333b;
+//   --admin-dark: #171721;
+//   --admin-light: #33333b;
+//   --admin-white: #f5f5f7;
+//   --admin-blue: #292f53;
+//   --admin-green: #2c4645;
+//   --admin-grad: #23232d;
