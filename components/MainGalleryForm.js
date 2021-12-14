@@ -10,14 +10,14 @@ const MainGalleryForm = (props) => {
   const [picture, setPicture] = useState(
     maingallery ? maingallery.picture : ''
   );
-  const [title, setTitle] = useState(subgallery ? subgallery.title : '');
-  const [price, setPrice] = useState(subgallery ? subgallery.price : '');
-  const [subPicture, setSubPicture] = useState(
-    subgallery ? subgallery.picture : ''
-  );
-  const [size, setSize] = useState(subgallery ? subgallery.size : '');
-  const [type, setType] = useState(subgallery ? subgallery.type_of : '');
   const [update, setUpdate] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (isSubmitted === true) {
+      onSubmit();
+    }
+  }, [picture]);
 
   useEffect(() => {
     if (update === true) {
@@ -27,6 +27,10 @@ const MainGalleryForm = (props) => {
       }, 1000);
     }
   }, [update]);
+
+  //  on submit <change a state var to true, pass that state var as a prop in teh img uplooadde, in the img uploaderthat runs on props state var,test.
+  //  in the useffect run the uploadto server if its true, onsetimage in main gallery should be set to
+  // useeffect for picture, if the submit is true call function on submit, statevar false in the end of onsubmit
 
   async function onSubmit() {
     let newPicture = {
@@ -50,34 +54,7 @@ const MainGalleryForm = (props) => {
 
     props.onSubmit(res);
     setUpdate(true);
-  }
-
-  async function onSubmitToSubGallery() {
-    let newSubPicture = {
-      title,
-      price,
-      picture: subPicture,
-      size,
-      type_of: type,
-    };
-
-    let url = `${server}/api/subgallerys`,
-      method = 'POST';
-    if (props.type === 'edit') {
-      url = `${server}/api/subgallery/${subgallery.id}`;
-      method = 'PUT';
-    }
-    const response = await fetch(url, {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newSubPicture),
-    });
-    const res = await response.json();
-
-    props.onSubmit(res);
-    setUpdate(true);
+    setIsSubmitted(false);
   }
 
   return (
@@ -87,16 +64,15 @@ const MainGalleryForm = (props) => {
         <ImageUploader
           className={FormStyles.imageUploader}
           image={picture}
-          onSetImage={setPicture}
+          onSetImage={picture}
+          isSubmitted={isSubmitted}
         />
         <div className={FormStyles.buttonContainer}>
-          <a className={FormStyles.button} onClick={onSubmit}>
+          <a onClick={() => setIsSubmitted(true)}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
           {props.type === 'edit' ? (
-            <a className={FormStyles.button} href='/admin'>
-              Tillbaka till admin
-            </a>
+            <a href='/admin'>Tillbaka till admin</a>
           ) : (
             ''
           )}

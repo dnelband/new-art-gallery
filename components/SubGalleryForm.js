@@ -86,13 +86,11 @@ const SubGalleryForm = (props) => {
           </select>
         </div>
         <div className={FormStyles.buttonContainer}>
-          <a className={FormStyles.button} onClick={onSubmit}>
+          <a onClick={onSubmit}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
           {props.type === 'edit' ? (
-            <a className={FormStyles.button} href='/admin'>
-              Tillbaka till admin
-            </a>
+            <a href='/admin'>Tillbaka till admin</a>
           ) : (
             ''
           )}

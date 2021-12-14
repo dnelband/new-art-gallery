@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
 
 export default function ImageUploader(props) {
   const [image, setImage] = useState(props.image);
   const [createObjectURL, setCreatedObjectURL] = useState(null);
+
+  useEffect(() => {
+    if (props.isSubmitted === true) {
+      uploadToServer();
+    }
+  }, [props.isSubmitted]);
 
   const uploadToClient = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -42,22 +48,13 @@ export default function ImageUploader(props) {
       <div className={FormStyles.imageUploader}>
         {imageDisplay}
 
-        <input
-          className={FormStyles.button}
-          type='file'
-          name='myImage'
-          onChange={uploadToClient}
-        />
+        <input type='file' name='myImage' onChange={uploadToClient} />
       </div>
-      <div className={FormStyles.buttonContainer}>
-        <a
-          className={FormStyles.uploadbtn}
-          type='submit'
-          onClick={uploadToServer}
-        >
+      {/* <div className={FormStyles.buttonContainer}>
+        <a type='submit' onClick={uploadToServer}>
           Upload image
         </a>
-      </div>
+      </div> */}
     </imageuploader>
   );
 }
