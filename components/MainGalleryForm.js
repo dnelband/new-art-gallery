@@ -64,7 +64,7 @@ const MainGalleryForm = (props) => {
         <ImageUploader
           className={FormStyles.imageUploader}
           image={picture}
-          onSetImage={picture}
+          onSetImage={setPicture}
           isSubmitted={isSubmitted}
         />
         <div className={FormStyles.buttonContainer}>

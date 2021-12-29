@@ -1,25 +1,54 @@
-.header {
-  font-family: 'raleway';
+@media (min-width: 581px) {
+  .header {
+    font-family: 'raleway';
+  }
+  .header .bg {
+    position: relative;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), url(../public/uploads/bg.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .header .bg .text {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 27px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+  .header .bg .text .border {
+    background-color: #202022a9;
+    color: white;
+    padding: 20px;
+  }
 }
-.header .bg {
-  position: relative;
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), url(../public/uploads/bg.jpg) no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-.header .bg .text {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  font-size: 27px;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-}
-.header .bg .text .border {
-  background-color: var(--black);
-  color: white;
-  padding: 20px;
+@media (max-width: 580px) {
+  .header {
+    font-family: 'raleway';
+  }
+  .header .bg {
+    position: relative;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), url(../public/uploads/bg.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .header .bg .text {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin: 0 auto;
+  }
+  .header .bg .text .border {
+    background-color: #202022a9;
+    color: white;
+    padding: 20px;
+  }
 }

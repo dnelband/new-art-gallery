@@ -84,22 +84,17 @@ const About = () => {
   }
 
   return (
-    <about className={aboutStyles.about}>
+    <about id='about' className={aboutStyles.about}>
       <div className={aboutStyles.bgContainer}>
         <div className={aboutStyles.contentContainer}>
           <div className={aboutStyles.aboutContainer}>
             <h2>Om mig</h2>
             <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet.
+              Jag har malat och skapat i flera ar. <br />
+              Mina inpirationer kommer fran olika hall.
+              <br />
+              Om du är intresserad av att köpa nagot av min verk sa kontakta mig
+              i formuläret här brevid.
             </p>
           </div>
           <div className={aboutStyles.formContainer}>

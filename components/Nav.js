@@ -1,61 +1,75 @@
+import { useEffect, useState } from 'react/cjs/react.development';
 import navStyles from '../styles/Nav.module.css';
 
 const Nav = () => {
-  if (typeof window !== 'undefined') {
-    console.log(window.location.href);
-    if (window.location.href === '/') {
-      console.log('main');
-    } else if (window.location.href === '/admin') {
-      console.log('This is admin');
-    } else if (
-      window.location.href === '/tavlor' ||
-      window.location.href === '/skulpturer'
-    ) {
-      console.log('galleri');
+  const [navbar, setNavbar] = useState(false);
+
+  function navbarDisplay() {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
     }
   }
 
-  return (
-    <nav className={navStyles.nav}>
-      <ul>
-        <div className={navStyles.left}>
-          <li>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', navbarDisplay);
+  }
+
+  function onMenuClick(divId) {
+    let element = document.getElementById(divId);
+    if (element !== null) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  let navbarTypeDisplay;
+  if (typeof window !== 'undefined') {
+    if (window.location.pathname === '/') {
+      navbarTypeDisplay = (
+        <div
+          className={
+            navbar ? navStyles.navContainer : navStyles.navContainerHidden
+          }
+        >
+          <div className={navStyles.left}>
             <a href='/'>Charlotte Hillborg</a>
-          </li>
-        </div>
-        <div className={navStyles.right}>
-          <li>
+          </div>
+          <div className={navStyles.right}>
             <a href='/tavlor'>Tavlor</a>
-          </li>
-          <li>
-            <a href='/skulpturer'>Skulpturer</a>
-          </li>
-          <li>
-            <a
-              onClick={() =>
-                document
-                  .getElementById('about')
-                  .scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() =>
-                document
-                  .getElementById('Contact')
-                  .scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              Contact
-            </a>
-          </li>
+            <a href='/betong&mosaik'>Betong & Mosaik</a>
+            <a onClick={() => onMenuClick('about')}>About</a>
+            <a onClick={() => onMenuClick('about')}>Contact</a>
+          </div>
         </div>
-      </ul>
-    </nav>
-  );
+      );
+    } else if (window.location.pathname === '/admin') {
+      console.log('This is admin');
+    } else if (
+      window.location.pathname === '/tavlor' ||
+      window.location.pathname === '/betong&mosaik'
+    ) {
+      navbarTypeDisplay = (
+        <div
+          className={
+            navbar ? navStyles.navContainer : navStyles.navContainerHidden
+          }
+        >
+          <div className={navStyles.left}>
+            <a href='/'>Charlotte Hillborg</a>
+          </div>
+          <div className={navStyles.right}>
+            <a href='/tavlor'>Tavlor</a>
+            <a href='/betong&mosaik'>Betong & Mosaik</a>
+            <a onClick={() => onMenuClick('about')}>About</a>
+            <a onClick={() => onMenuClick('about')}>Contact</a>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  return <nav className={navStyles.nav}>{navbarTypeDisplay} </nav>;
 };
 
 export default Nav;

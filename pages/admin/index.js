@@ -70,7 +70,7 @@ const admin = ({ initMainGallerys, initSubGallerys, props }) => {
 
   let sculptureGalleryDisplay = subgallerys.map((subgallery, index) => (
     <div key={index} subgallery={subgallery}>
-      {subgallery.type_of === 'skulpturer' ? (
+      {subgallery.type_of === 'betong&mosaik' ? (
         <div>
           <p>{subgallery.title}</p>
           <p>{subgallery.price}</p>

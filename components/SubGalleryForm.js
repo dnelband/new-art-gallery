@@ -12,6 +12,13 @@ const SubGalleryForm = (props) => {
   const [size, setSize] = useState(subgallery ? subgallery.size : '');
   const [type, setType] = useState(subgallery ? subgallery.type_of : '');
   const [update, setUpdate] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (isSubmitted === true) {
+      onSubmit();
+    }
+  }, [picture]);
 
   useEffect(() => {
     if (update === true) {
@@ -48,6 +55,7 @@ const SubGalleryForm = (props) => {
 
     props.onSubmit(res);
     setUpdate(true);
+    setIsSubmitted(false);
   }
 
   return (
@@ -58,6 +66,7 @@ const SubGalleryForm = (props) => {
           className={FormStyles.imageUploader}
           image={picture}
           onSetImage={setPicture}
+          isSubmitted={isSubmitted}
         />
         <div className={FormStyles.inputContainer}>
           <div className={FormStyles.title}>namn</div>
@@ -82,11 +91,11 @@ const SubGalleryForm = (props) => {
           <select value={type} onChange={(e) => setType(e.target.value)}>
             <option>Välj album</option>
             <option value='tavlor'>Tavlor</option>
-            <option value='skulpturer'>Skulpturer</option>
+            <option value='betong&mosaik'>Betong & Mosaik</option>
           </select>
         </div>
         <div className={FormStyles.buttonContainer}>
-          <a onClick={onSubmit}>
+          <a onClick={() => setIsSubmitted(true)}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
           {props.type === 'edit' ? (

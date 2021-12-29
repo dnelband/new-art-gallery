@@ -43,7 +43,7 @@ export default function Home({ maingallery, about, contact }) {
       <div className={styles.container}>
         <div>
           <div className={styles.preview}>
-            <img src='/uploads/t3.jpg' className={styles.firstImg} />
+            <img src='/uploads/thumbnail2.jpg' className={styles.firstImg} />
             <div className={styles.caption}>
               <h2>
                 Se alla <br />
@@ -54,12 +54,14 @@ export default function Home({ maingallery, about, contact }) {
           </div>
         </div>
         <div className={styles.preview}>
-          <img src='/uploads/s9.jpg' className={styles.secondImg} />
+          <img src='/uploads/thumbnail1.jpg' className={styles.secondImg} />
           <div className={styles.caption}>
             <h2>
               Se alla
               <br />
-              <span> skulpturer</span>
+              <span>
+                Betong <br /> &<br /> Mosaik
+              </span>
             </h2>
             <p>⟶</p>
           </div>

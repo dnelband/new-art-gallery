@@ -33,7 +33,7 @@ CREATE TABLE Contact (
 
 INSERT INTO Maingallery (picture)  values ('/public/rnr-mobile.jpg');
 INSERT INTO Maingallery (picture)  values ('/public/rnr-tablet.jpg');
-INSERT INTO Subgallery (title,price,picture,size,type_of)  values ('a', '30', '/public/rnr-mobile.jpg', '30 x 40','skulpturer');
+INSERT INTO Subgallery (title,price,picture,size,type_of)  values ('a', '30', '/public/rnr-mobile.jpg', '30 x 40','betong&mosaik');
 INSERT INTO Subgallery (title,price,picture,size,type_of)  values ('b', '40', '/public/rnr-mobile.jpg', '30 x 40','tavlor');
 INSERT INTO About (title,about_text)  values ('My fisrt abou', 'This is a website');
 INSERT INTO Contact (fullname,email,msg,seen)  values ('a message','sjbv@kjsvnh.de', 'hello there', false );
