@@ -7,8 +7,8 @@ import { server } from '../config/server';
 import { importDb } from '../config/db';
 import { useState } from 'react';
 
-export default function Home({ maingallery, about, contact }) {
-  // const [messages, setMessages] = useState(initMessages);
+export default function Home({ maingallery, about, contact, initMessages }) {
+  const [messages, setMessages] = useState(initMessages);
 
   async function onSubmitNewMessage(newMessage) {
     const response = await fetch(`${server}/api/messages`, {
@@ -24,17 +24,17 @@ export default function Home({ maingallery, about, contact }) {
 
   return (
     <div className={styles.home}>
-      <Head>
-        <script
+      {/* <Head>
+        <Script
           src='https://kit.fontawesome.com/4eddce3a99.js'
           crossorigin='anonymous'
         ></script>
-      </Head>
+      </Head> */}
       <link
         rel='stylesheet'
         href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css'
         integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=='
-        crossorigin='anonymous'
+        crossOrigin='anonymous'
         referrerpolicy='no-referrer'
       />
       <Header />
@@ -68,7 +68,7 @@ export default function Home({ maingallery, about, contact }) {
         </div>
       </div>
 
-      <About about={about} contact={contact} />
+      <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />
     </div>
   );
 }

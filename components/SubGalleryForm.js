@@ -3,6 +3,7 @@ import { getServerSideProps } from '../pages/admin';
 import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
+import Link from 'next/link';
 
 const SubGalleryForm = (props) => {
   const subgallery = props.subgallery;
@@ -99,7 +100,7 @@ const SubGalleryForm = (props) => {
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
           {props.type === 'edit' ? (
-            <a href='/admin'>Tillbaka till admin</a>
+            <Link href='/admin'>Tillbaka till admin</Link>
           ) : (
             ''
           )}

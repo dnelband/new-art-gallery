@@ -1,6 +1,6 @@
-import { server } from '../config/server';
+// import { server } from '../config/server';
 import { importDb } from '../config/db';
-import { useState } from 'react';
+// import { useState } from 'react';
 import SecondGalleryStyles from '../styles/SecondGallery.module.css';
 
 export default function Betongmosaik({ subgallery }) {

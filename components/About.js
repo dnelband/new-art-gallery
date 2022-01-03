@@ -1,7 +1,7 @@
 import aboutStyles from '../styles/About.module.css';
 import { useState } from 'react';
 
-const About = () => {
+const About = ({ about, contact }) => {
   const [fullname, setFullname] = useState('');
   const [fullnameError, setFullnameError] = useState(false);
   const [email, setEmail] = useState('');
@@ -60,9 +60,7 @@ const About = () => {
 
   let emailErrorDisplay;
   if (emailError === true) {
-    emailErrorDisplay = (
-      <p className={ContactStyles.error}>Email isn't valid</p>
-    );
+    emailErrorDisplay = <p className={ContactStyles.error}>Email isnt valid</p>;
   }
 
   let messageErrorDisplay;

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react/cjs/react.development';
+import { useState } from 'react/cjs/react.development';
 import navStyles from '../styles/Nav.module.css';
+import Link from 'next/link';
 
 const Nav = () => {
   const [navbar, setNavbar] = useState(false);
@@ -33,13 +34,13 @@ const Nav = () => {
           }
         >
           <div className={navStyles.left}>
-            <a href='/'>Charlotte Hillborg</a>
+            <Link href='/'>Charlotte Hillborg</Link>
           </div>
           <div className={navStyles.right}>
-            <a href='/tavlor'>Tavlor</a>
-            <a href='/betong&mosaik'>Betong & Mosaik</a>
-            <a onClick={() => onMenuClick('about')}>About</a>
-            <a onClick={() => onMenuClick('about')}>Contact</a>
+            <Link href='/tavlor'>Tavlor</Link>
+            <Link href='/betong&mosaik'>Betong & Mosaik</Link>
+            <Link onClick={() => onMenuClick('about')}>About</Link>
+            <Link onClick={() => onMenuClick('about')}>Contact</Link>
           </div>
         </div>
       );
@@ -56,13 +57,13 @@ const Nav = () => {
           }
         >
           <div className={navStyles.left}>
-            <a href='/'>Charlotte Hillborg</a>
+            <Link href='/'>Charlotte Hillborg</Link>
           </div>
           <div className={navStyles.right}>
-            <a href='/tavlor'>Tavlor</a>
-            <a href='/betong&mosaik'>Betong & Mosaik</a>
-            <a onClick={() => onMenuClick('about')}>About</a>
-            <a onClick={() => onMenuClick('about')}>Contact</a>
+            <Link href='/tavlor'>Tavlor</Link>
+            <Link href='/betong&mosaik'>Betong & Mosaik</Link>
+            <Link onClick={() => onMenuClick('about')}>About</Link>
+            <Link onClick={() => onMenuClick('about')}>Contact</Link>
           </div>
         </div>
       );

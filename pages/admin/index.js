@@ -6,7 +6,7 @@ import Head from 'next/head';
 import MainGalleryForm from '../../components/MainGalleryForm';
 import SubGalleryForm from '../../components/SubGalleryForm';
 
-const admin = ({ initMainGallerys, initSubGallerys, props }) => {
+export default function Admin({ initMainGallerys, initSubGallerys, props }) {
   const [maingallerys, setMaingallerys] = useState(initMainGallerys);
   const [subgallerys, setSubgallerys] = useState(initSubGallerys);
   //   const [about, setAbout] = useState(initAbout);
@@ -92,12 +92,12 @@ const admin = ({ initMainGallerys, initSubGallerys, props }) => {
   return (
     <admin>
       <div className={AdminStyles.admin}>
-        <Head>
+        {/* <Head>
           <script
             src='https://kit.fontawesome.com/4eddce3a99.js'
             crossorigin='anonymous'
           ></script>
-        </Head>
+        </Head> */}
         <div className={AdminStyles.sectionContainer}>
           <div className={AdminStyles.firstRow}>
             <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />
@@ -140,9 +140,7 @@ const admin = ({ initMainGallerys, initSubGallerys, props }) => {
       </div>
     </admin>
   );
-};
-
-export default admin;
+}
 
 export const getServerSideProps = async () => {
   const db = await importDb();

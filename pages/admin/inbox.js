@@ -2,9 +2,11 @@ import { importDb } from '../../config/db';
 import { server } from '../../config/server';
 import { useState } from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
+import Link from 'next/link';
 import InboxStyles from '../../styles/Inbox.module.css';
 
-const inbox = ({ initMessages }) => {
+export default function Inbox({ initMessages }) {
   const [messages, setMessages] = useState(initMessages);
 
   async function onSubmit(message) {
@@ -44,12 +46,12 @@ const inbox = ({ initMessages }) => {
 
   return (
     <div className={InboxStyles.inbox}>
-      <Head>
-        <script
+      {/* <Head>
+        <Script
           src='https://kit.fontawesome.com/4eddce3a99.js'
           crossorigin='anonymous'
-        ></script>
-      </Head>
+        ></Script>
+      </Head> */}
       <h2 className={InboxStyles.title}>Inbox</h2>
 
       <table className={InboxStyles.table}>
@@ -79,13 +81,16 @@ const inbox = ({ initMessages }) => {
                 <span className={InboxStyles.span}>{message.created_at}</span>
               </td>
               <td className={InboxStyles.td}>
-                <a className={InboxStyles.i} onClick={() => onSubmit(message)}>
+                <Link
+                  className={InboxStyles.i}
+                  onClick={() => onSubmit(message)}
+                >
                   {message.seen === 1 ? (
                     <i className='far fa-envelope'></i>
                   ) : (
                     <i className='far fa-envelope-open'></i>
                   )}
-                </a>
+                </Link>
               </td>
               <td className={InboxStyles.td}>
                 <a
@@ -100,15 +105,13 @@ const inbox = ({ initMessages }) => {
         </tbody>
       </table>
       <div className={InboxStyles.buttonContainer}>
-        <a href='/admin' className={InboxStyles.button}>
+        <Link href='/admin' className={InboxStyles.button}>
           Back to admin panel
-        </a>
+        </Link>
       </div>
     </div>
   );
-};
-
-export default inbox;
+}
 
 export const getServerSideProps = async () => {
   const db = await importDb();
